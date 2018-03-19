@@ -18,8 +18,14 @@ for iter = 1:num_iters
     %
 
 
-
-
+    n = length(theta);
+    h = X * theta;
+    for (theta_iter = 1 : n)
+      x = X(:,theta_iter);
+      theta_i = theta(theta_iter);
+      theta_i = theta_i - alpha * (1/ m) * sum(( h - y) .* x );
+      theta(theta_iter) = theta_i;
+    end;
 
 
 
